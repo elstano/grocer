@@ -12,7 +12,7 @@ public class Shop  {
     @Column
     private String name;
 
-    @OneToMany()
+    @OneToMany(mappedBy = "shop")
     private List<Department> departments;
 
     public String getId() {
