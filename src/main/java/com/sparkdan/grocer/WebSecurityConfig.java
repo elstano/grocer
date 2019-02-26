@@ -15,17 +15,23 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
+//        http
+//                .authorizeRequests()
+//                .antMatchers("/", "/jquery-3.3.1.min.js", "/bootstrap/**", "/bootgrid/**", "/grocer/**").permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .permitAll();
+
+        http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/jquery-3.3.1.min.js", "/bootstrap/**", "/bootgrid/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll();
+//                .antMatchers("/**").permitAll().mvcMatchers("/**").permitAll()
+                .anyRequest().permitAll();
+
     }
 
     @Bean

@@ -1,9 +1,12 @@
 package com.sparkdan.grocer;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@JsonInclude(value = JsonInclude.Include.NON_NULL, content = JsonInclude.Include.NON_NULL)
 public class Product {
 
     @Id
@@ -23,6 +26,17 @@ public class Product {
     private String unit;
     @Column
     private Double increment;
+
+    public Product() {
+
+    }
+
+    public Product(String name, List<ProductCategory> categories, String unit, Double increment) {
+        this.name = name;
+        this.categories = categories;
+        this.unit = unit;
+        this.increment = increment;
+    }
 
     public String getId() {
         return id;
