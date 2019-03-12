@@ -1,1 +1,1 @@
-insert into prooduct ("name", increment, unit ) values ("Бананы", 1.0, 'кг');
+insert into product (name, increment, unit ) values ('Бананы', 1.0, 'кг');

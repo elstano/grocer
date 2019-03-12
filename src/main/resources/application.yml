@@ -9,15 +9,23 @@ spring:
 
 spring:
   profiles: development
-hibernate:
-  show_sql: true
-  hbm2ddl:
-    auto: create
-    import_files: "/scripts/test_data.sql"
-spring.jpa.properties.javax.persistence.schema-generation:
-  create-source: metadata
-  scripts:
-    action: create
-    create-target: "target/create_schema.sql"
+  jpa:
+    generate-ddl: true
+    show-sql: true
+
+    properties.javax.persistence.schema-generation:
+      create-source: metadata
+      hibernate:
+        ddl-auto: create
+#        hbm2ddl.import_files: "scripts/test_data.sql"
+      scripts:
+        create-target: "target/create_schema.sql"
+  datasource:
+    data: classpath:/scripts/test_data.sql
+#hibernate:
+#  show_sql: true
+#  hbm2ddl:
+#    auto: create
+#    import_files: "/scripts/test_data.sql"
 logging.level:
   org.hibernate.tool: DEBUG
