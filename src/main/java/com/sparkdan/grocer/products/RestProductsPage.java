@@ -8,8 +8,8 @@ import java.util.List;
 @JsonInclude(value = JsonInclude.Include.NON_NULL, content = JsonInclude.Include.NON_NULL)
 public class RestProductsPage {
     int current;
-    int rowCount;
-    int total;
+    Integer rowCount;
+    Long total;
     List<Product> rows;
 
     public int getCurrent() {
@@ -20,19 +20,19 @@ public class RestProductsPage {
         this.current = current;
     }
 
-    public int getRowCount() {
+    public Integer getRowCount() {
         return rowCount;
     }
 
-    public void setRowCount(int rowCount) {
+    public void setRowCount(Integer rowCount) {
         this.rowCount = rowCount;
     }
 
-    public int getTotal() {
+    public Long getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(Long total) {
         this.total = total;
     }
 
